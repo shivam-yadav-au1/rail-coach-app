@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+        crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <nav class="navbar navbar-dark bg-dark">
+                <a class="nav-link active" href="/bogiReceived">Bogi Recived</a>
+                <a class="nav-link" href="/bogiFitment">Bogi Fitment Records</a>
+                <a class="nav-link" href="/showRecords">Show Record</a>
+            </nav>
+        </div>
+        {{#if success}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Bogi Received Successfully !</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        {{#if failed}}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Failed Inserting Bogi</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+        <div class="row" style="margin-top:3%">
+            <div class="col-md-4 offset-md-4">
+                <h2>Enter Received Bogi Details</h2>
+                <form action="/bogiReceived" method="POST" class="needs-validation" novalidate>
+                    <div class="form-group">
+                        <label for="bogi-no">Bogi Number</label>
+                        <input class="form-control" type="text" name="coachNumber" id="bogiNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="bogi-type">Bogi Type</label>
+                        <select class="form-control" id="bogiType-select" name="coachName">
+                            <option value="">Choose</option>
+                            <option value="L3T">L3T</option>
+                            <option value="L2T">L2T</option>
+                            <option value="LSCN">LSCN</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please Select Bogi Type
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bogi-subtype">Bogi SubType</label>
+                        <select class="form-control" id="bogisubType-select" name="coachType">
+                            <option value="">Choose</option>
+                            <option value="F">F</option>
+                            <option value="K">K</option>
+                            <option value="E">E</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Please Select Bogi SubType
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bogi-quantity">Enter Quantity</label>
+                        <input class="form-control" type="number" name="coachQuantity" id="coachQuantity">
+                    </div>
+                    <div class="form-group">
+                        <label for="date-picker">Date</label>
+                        <input class="form-control" id="datepicker" type="date" name="date" id="date-picker" />
+                        <div class="invalid-feedback">
+                            Please Enter Date
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
