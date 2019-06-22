@@ -21,7 +21,7 @@ $(document).ready(function(){
             url:$(this).attr('action'),
             data:formData,
             cache:false,
-            contentType:'application/x-www-form-urlencoded;charset=utf-8',
+            contentType:false,
             processData:false,
             success:function(data){
                 console.log(data);

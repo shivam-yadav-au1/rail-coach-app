@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show Record</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <nav class="navbar navbar-dark bg-dark">
+                {{!-- <a class="nav-link active" href="/bogiReceived">Bogi Recived</a>
+                <a class="nav-link" href="/bogiFitment">Bogi Fitment Records</a> --}}
+                {{!-- <a class="nav-link" href="/showRecords">Show Record</a> --}}
+                <a class="nav-link" href="/coachLowerPosition">Coach Lower Position</a>
+                <a class="nav-link" href="/showCoachLowerPosition">Show Coach Lower Positioin</a>
+            </nav>
+        </div>
+      
+        <div class="row" style="margin-top:2%">
+
+            <div class="col-md-8 offset-md-2">
+                <h2>Show Coach Lower Position </h2>
+
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Staff Name</th>
+                            <th scope="col">Coach No</th>
+                            <th scope="col">Brake Panel Type</th>
+                            <th scope="col">Bogie No PP/NPP</th>
+                            <th scope="col">Bogie Caliper</th>
+                            <th scope="col">Shell No</th>
+                            <th scope="col">CBC Type</th>
+                            <th scope="col">Shim PP/NPP</th>
+                            <th scope="col">CBC Height PP/NPP</th>
+                            <th scope="col">date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each records}}
+                        <tr>
+                            <td>{{staffName}}</td>
+                            <td>{{coachNumber}}</td>
+                            <td>{{brakePanelType}}</td>
+                            <td>{{bogieNo}}</td>
+                            <td>{{bogieCaliper}}</td>
+                            <td>{{shellNo}}</td>
+                            <td>{{cbcType}}</td>
+                            <td>{{shimPPNPP}}</td>
+
+                            <td>{{cbcHeightPPNPP}}</td>
+
+                            <td>{{date}}</td>
+
+                        </tr>
+                        {{/each}}
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

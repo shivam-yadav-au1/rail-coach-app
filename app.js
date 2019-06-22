@@ -4,13 +4,14 @@ var bodyParser = require('body-parser');
 var bogiRecived = require("./routes/bogi-recived")
 var bogiFitment = require("./routes/bogi-fitment-records")
 var showRecords = require("./routes/show-records")
+var coachLowerPosition = require("./routes/coach-lower-position");
 
 
 var app  = express();
 
 app.set("view engine","hbs");
 
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 
 app.use(express.static("public"));
@@ -30,7 +31,7 @@ mongoClient.connect(function(error){
 });
 
 app.get("/",function(request,response){
-    response.render("index.hbs");
+    response.render("coach-lower-position.hbs");
 })
 
 app.get("/bogiReceived",bogiRecived.bogiRecived);
@@ -38,7 +39,10 @@ app.get("/bogiFitment",bogiFitment.showBogiFitmentRecords);
 app.get("/showRecords",showRecords.showRecords);
 app.post("/bogiReceived",bogiRecived.addNewBogi);
 app.post("/bogiFitment",bogiFitment.addBogiFitment);
-app.post("/updateBogiStatus",bogiFitment.updateBogiStatus)
+app.post("/updateBogiStatus",bogiFitment.updateBogiStatus);
+app.get("/coachLowerPosition",coachLowerPosition.coachLowerPosition);
+app.post("/addCoachLowerPosition",coachLowerPosition.addCoachLowerPosition);
+app.get("/showCoachLowerPosition",coachLowerPosition.showCoachLowerPosition);
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 3001);
 

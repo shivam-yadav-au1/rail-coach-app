@@ -58,10 +58,15 @@ var addBogiFitment = function (request, response) {
 
 var updateBogiStatus = function(request,response){
     console.log("updateBogiStatus Received ...");
-
+    
     var bogiNumber = request.body.bogiNumber;
     var status = request.body.status;
-    console.log(request.body)
+    if(request.body.bogiNumber ){
+        console.log("request body is not null"); 
+    }else{
+        console.log("request body is null ");
+    }
+    //console.log(request.body)
     console.log(" BogiNumber :"+bogiNumber+" Status : "+status);
     response.send("Success");
 

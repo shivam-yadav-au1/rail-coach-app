@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coach-Lower-Position</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark">
+            <nav class="navbar navbar-dark bg-dark">
+                {{!-- <a class="nav-link active" href="/bogiReceived">Bogi Recived</a>
+                <a class="nav-link" href="/bogiFitment">Bogi Fitment Records</a> --}}
+                {{!-- <a class="nav-link" href="/showRecords">Show Record</a> --}}
+                <a class="nav-link" href="/coachLowerPosition">Coach Lower Position</a>
+                <a class="nav-link" href="/showCoachLowerPosition">Show Coach Lower Positioin</a>
+            </nav>
+        </div>
+        {{#if added}}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Bogie Status Added Successfully !!!</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {{/if}}
+
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <form action="/addCoachLowerPosition" method="POST">
+                    <div class="form-group">
+                        <label for="name">
+                            Staff Name
+                        </label>
+                        <input class="form-control" type="text" name="StaffName" id="name" required>
+                    </div>
+                    <div class="input-group">
+                        {{!-- <label for="name">
+                            Coach NO
+                        </label> --}}
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Coach Type/NO</span>
+                        </div>
+                        <select class="form-control" id="exampleFormControlSelect1" name="coachType" required>
+                            <option>LSCN</option>
+                            <option>L3T</option>
+                            <option>L2T</option>
+                            <option>DG</option>
+                            <option>LCNG</option>
+                            <option>LDSLR</option>
+                            <option>CPC</option>
+                            <option>SCZ</option>
+                            <option>Other</option>
+                        </select>
+                        <input type="text" aria-label="coachNO" class="form-control" name="coachNo"
+                            placeholder="Coach NO" required>
+                    </div>
+                    <p></p>
+                    <div class="form-group">
+                        <label for="name"> Brake Panel Type</label>
+
+                        <select class="form-control" name="brakePanelType" id="exampleFormControlSelect1" required>
+                            <option>Escort</option>
+                            <option>KBI</option>
+                            <option>Favily</option>
+                            <option>other</option>
+                        </select>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="">BogieNO PP/NPP</label>
+                        <input type="text" aria-label="bogiNo" class="form-control" name="bogieNo" required>
+                    </div>
+                    <p></p>
+                    <div class="form-group">
+                        <label for="name"> Bogie Caliper</label>
+                        <select class="form-control" name="bogieCaliper" id="exampleFormControlSelect1" required>
+                            <option selected>Escort</option>
+                            <option>KBI</option>
+                            <option>Favily</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Shell No</label>
+                        <input class="form-control" type="text" name="shellNo" id="cellNo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">CBC Type</label>
+                        <select class="form-control" name="cbcType" id="exampleFormControlSelect1" required>
+                            <option>Escort</option>
+                            <option>KBI</option>
+                            <option>Favily</option>
+                            <option>other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Shim PP/NPP</label>
+                        <input class="form-control" type="text" name="shimPPNPP" id="shimpp" required>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="name">CBC Height PP/NPP</label>
+                        <input class="form-control" type="text" name="cbcHeightPPNPP" id="shimnpp" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Date</label>
+                        <input class="form-control" type="date" name="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-info">Submit</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+</html>
