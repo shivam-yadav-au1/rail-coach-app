@@ -1,10 +1,13 @@
 var express = require('express');
 var mongodb = require('mongodb');
+var session = require("express-session");
 var bodyParser = require('body-parser');
 var bogiRecived = require("./routes/bogi-recived")
 var bogiFitment = require("./routes/bogi-fitment-records")
 var showRecords = require("./routes/show-records")
 var coachLowerPosition = require("./routes/coach-lower-position");
+var auth = require("./routes/auth.js");
+
 
 
 var app  = express();
@@ -13,6 +16,7 @@ app.set("view engine","hbs");
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
+app.use(session({secret: "catkey"}));
 
 app.use(express.static("public"));
 //Connection to DB
@@ -31,9 +35,13 @@ mongoClient.connect(function(error){
 });
 
 app.get("/",function(request,response){
-    response.render("coach-lower-position.hbs");
+    response.redirect("/login")
 })
 
+app.get("/signup",auth.signupPage);
+app.post("/signup",auth.signup);
+app.get("/login",auth.loginPage);
+app.post("/login",auth.login);
 app.get("/bogiReceived",bogiRecived.bogiRecived);
 app.get("/bogiFitment",bogiFitment.showBogiFitmentRecords);
 app.get("/showRecords",showRecords.showRecords);
@@ -44,5 +52,5 @@ app.get("/coachLowerPosition",coachLowerPosition.coachLowerPosition);
 app.post("/addCoachLowerPosition",coachLowerPosition.addCoachLowerPosition);
 app.get("/showCoachLowerPosition",coachLowerPosition.showCoachLowerPosition);
 
-app.listen(process.env.PORT || 3001);
+app.listen(process.env.PORT || 3000);
 
