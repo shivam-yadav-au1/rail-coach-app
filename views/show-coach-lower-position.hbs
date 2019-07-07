@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
 
 </head>
 
@@ -33,6 +35,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th scope="col" class="id">Id</th>
                             <th scope="col">Staff Name</th>
                             <th scope="col">Coach No</th>
                             <th scope="col">Brake Panel Type</th>
@@ -43,12 +46,14 @@
                             <th scope="col">Shim PP/NPP</th>
                             <th scope="col">CBC Height PP/NPP</th>
                             <th scope="col">date</th>
+                            <th scope="col" class="deleteCol">Delete</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         {{#each records}}
                         <tr>
+                            <td class="idRecord">{{_id}}</td>
                             <td>{{staffName}}</td>
                             <td>{{coachNumber}}</td>
                             <td>{{brakePanelType}}</td>
@@ -61,7 +66,9 @@
                             <td>{{cbcHeightPPNPP}}</td>
 
                             <td>{{date}}</td>
-
+                           
+                            <td><a data-q_id={{_id}} class="deleteRecord"><span class="oi oi-trash"></span></a></td>
+                           
                         </tr>
                         {{/each}}
                     </tbody>
@@ -71,6 +78,10 @@
 
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+    <script src="/js/deleteRecord.js"></script>
+    <script src="/js/showAdminOption.js"></script>
 </body>
 
 </html>

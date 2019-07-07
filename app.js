@@ -51,6 +51,7 @@ app.post("/updateBogiStatus",bogiFitment.updateBogiStatus);
 app.get("/coachLowerPosition",coachLowerPosition.coachLowerPosition);
 app.post("/addCoachLowerPosition",coachLowerPosition.addCoachLowerPosition);
 app.get("/showCoachLowerPosition",coachLowerPosition.showCoachLowerPosition);
-
+app.post("/deleteCoachLowerPosition",coachLowerPosition.deleteCoachLowerPosition);
+app.get("/showAdminOption",coachLowerPosition.showAdminOption);
 app.listen(process.env.PORT || 3000);
 

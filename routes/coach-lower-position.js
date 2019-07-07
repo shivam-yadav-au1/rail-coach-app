@@ -71,16 +71,55 @@ var addCoachLowerPosition = function (request, response) {
 var showCoachLowerPosition = function (request, response) {
     DB = request.app.locals.DB;
     var data = {}
+    var loggedInUser = request.session.user;
+    console.log("loggedInUser ",loggedInUser);
     DB.collection("coachLowerPosition").find().toArray(function (error, result) {
         if (error) {
             console.log("Error :", error);
             return;
         }
-        data.records = result;
+        // data.records = result;
+        // data.loggedInUser = loggedInUser;
+        data ={
+            records:result,
+            loggedInUser:loggedInUser
+        }
+        console.log(data);
         response.render("show-coach-lower-position.hbs", data);
     })
+}
+
+var deleteCoachLowerPosition = function (request, response) {
+    var mongoId = request.query.id;
+   
+
+    DB.collection("coachLowerPosition").deleteOne({ _id: mongodb.ObjectID(mongoId) }, function (error, result) {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        var data = {
+            msg: "Success",
+            id: mongoId
+        }
+
+        response.send(JSON.stringify(data))
+
+    })
+
+}
+
+var showAdminOption = function(request,response){
+    
+    var loggedInUser = request.session.user;
+    var data ={
+        isAdmin:loggedInUser.isAdmin
+    }
+    response.send(JSON.stringify(data));
 }
 
 exports.coachLowerPosition = coachLowerPosition;
 exports.addCoachLowerPosition = addCoachLowerPosition;
 exports.showCoachLowerPosition = showCoachLowerPosition;
+exports.deleteCoachLowerPosition = deleteCoachLowerPosition;
+exports.showAdminOption = showAdminOption;
