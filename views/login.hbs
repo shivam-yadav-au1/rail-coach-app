@@ -14,15 +14,15 @@
 <body>
 
     <div class="container-fluid">
-        <div class="row bg-dark">
+        {{!-- <div class="row bg-dark">
             <nav class="navbar navbar-dark bg-dark">
-                {{!-- <a class="nav-link active" href="/bogiReceived">Bogi Recived</a>
-                <a class="nav-link" href="/bogiFitment">Bogi Fitment Records</a> --}}
-                {{!-- <a class="nav-link" href="/coachLowerPosition">Coach Lower Position</a> --}}
+                <a class="nav-link active" href="/bogiReceived">Bogi Recived</a>
+                <a class="nav-link" href="/bogiFitment">Bogi Fitment Records</a>
+                <a class="nav-link" href="/coachLowerPosition">Coach Lower Position</a>
                 <a class="nav-link" href="/showCoachLowerPosition">Show Coach Lower Positioin</a>
-                {{!-- <a class="nav-link" href="/showRecords">Show Record</a> --}}
+                <a class="nav-link" href="/showRecords">Show Record</a>
             </nav>
-        </div>
+        </div> --}}
 
         {{#if isLogin}}
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -55,8 +55,8 @@
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Password</label>
-                                <input required type="password" name="password" class="form-control" id="exampleInputPassword1"
-                                    placeholder="Password">
+                                <input required type="password" name="password" class="form-control"
+                                    id="exampleInputPassword1" placeholder="Password">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Login</button>
